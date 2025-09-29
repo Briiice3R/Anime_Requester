@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="src/styles/styles.css" rel="stylesheet" type="text/css" />
     <title>Anime Requester</title>
 </head>
 <body>
@@ -10,23 +11,26 @@
         <h1>Anime Requester</h1>
     </header>
     <main>
-        <div>
             <form>
-                <label for="searchType">Choisissez un type de recherche : </label>
-                <select id"searchType" name="searchType">
+                <div class="form-parts">
+                    <label for="searchType">Choisissez un type de recherche : </label>
+                    <select class="form-input" id"searchType" name="searchType">
                     <option value="title">Rechercher par titre</option>
                     <option value="genre">Rechercher par genre</option>
                     <option value="id">Rechercher par identifiant</option>
                     <option value="rank">Rechercher par rang de classement</option>
-                </select>
-                <label for="param">Paramètre :</label>
-                <input  type="text" id="paramInput" name="param">
-
+                    </select>
+                </div>
+                <div class="form-parts">
+                    <label for="param">Paramètre :</label>
+                    <input type="text" class="form-input" id="paramInput" name="param">
+                </div>
             </form>
+
             <template>
 
             </template>
-        </div>
+        
 
     </main>
 

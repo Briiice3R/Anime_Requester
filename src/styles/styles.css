@@ -1,0 +1,16 @@
+
+form{
+    display:block;
+    flex-direction: column;
+}
+
+.form-parts{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.form-input{
+    width: 50%;
+}
