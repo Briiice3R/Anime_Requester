@@ -1,6 +1,7 @@
-const HOST = "https://anime-db.p.rapidapi.com"
+const HOST = "https://anime-db.p.rapidapi.com";
+let APIKEY;
 try{
-    let APIKEY = await fetch("../../key.json", {method: "GET"}).then((data)=>data.json().then((data)=>data.key));
+    APIKEY = await fetch("../../key.json", {method: "GET"}).then((data)=>data.json().then((data)=>data.key));
 } catch(e){
     console.log("Fichier json inexistant");
     APIKEY = "";
