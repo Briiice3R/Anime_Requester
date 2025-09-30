@@ -4,13 +4,20 @@ form{
     flex-direction: column;
 }
 
-.form-parts{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+.form-parts {
+  margin-bottom: 1rem;
 }
 
-.form-input{
-    width: 50%;
+.form-input {
+  width: 100%;
+  max-width: 300px;
+  padding: 0.5rem;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+button {
+  width: 200px;
+  padding: 10px;
+  font-size: 1rem;
 }
