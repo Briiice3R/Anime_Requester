@@ -1,64 +1,10 @@
 const HOST = "https://anime-db.p.rapidapi.com"
-const APIKEY = ""
+const APIKEY = await fetch("../../key.json", {method: "GET"}).then((data)=>data.json().then((data)=>data.key));
+
 
 async function fetchAPI(endpoint, params = ""){
     try{
-        const reqApi = await fetch(`${HOST}${endpoind}${params}`, 
-        {
-            method: "GET",
-            headers:{
-                "x-rapidapi-key": APIKEY
-            }
-        });
-        const data = await reqApi.json();
-        return data.data;
-
-    
-    } catch(e){
-        console.log(e);
-    }
-}
-
-
-apiHandler.getAnimeByName = async (name, size=10, asc=true)=>{
-    try{
-        const reqApi = await fetch(`${HOST}/anime?page=1&size=${size}&search=${name}&sortOrder=${asc?"asc":"desc"}`, 
-        {
-            method: "GET",
-            headers:{
-                "x-rapidapi-key": APIKEY
-            }
-        });
-        const data = await reqApi.json();
-        return data.data;
-
-    
-    } catch(e){
-        console.log(e);
-    }
-};
-
-apiHandler.getAnimeByRank = async (id)=>{
-    try{
-        const reqApi = await fetch(`${HOST}/anime/by-ranking/${id}`, 
-        {
-            method: "GET",
-            headers:{
-                "x-rapidapi-key": APIKEY
-            }
-        });
-        const data = await reqApi.json();
-        return data.data;
-
-    
-    } catch(e){
-        console.log(e);
-    }
-}
-
-apiHandler.getTenAnime = async ()=>{
-    try{
-        const reqApi = await fetch(`${HOST}/anime?size=10`, 
+        const reqApi = await fetch(`${HOST}${endpoint}${params}`, 
         {
             method: "GET",
             headers:{
