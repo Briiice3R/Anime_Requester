@@ -19,6 +19,7 @@ header {
   padding: 20px 0;
   background-color: var(--color2);
   color: var(--dark-color);
+  margin: 30px auto;
 }
 
 .titlePage {
@@ -30,7 +31,6 @@ body{
     font-family: Arial, sans-serif;
     background: var(--light-color);
     color: var(--dark-color);
-    padding : var(--radius);
     line-height: 1.6;
 }
 
@@ -117,4 +117,24 @@ footer {
     width: 100%;
     margin-bottom: 5px;
   }
+}
+
+/*anime cards*/
+.card {
+  background-color: var(--color1);
+  margin: 1em;
+  border-radius: 1em;
+}
+
+.anime-card-title{
+  color :var(--dark-color);
+  text-decoration: underline;
+  text-align: center;
+}
+
+.anime-card-img{
+  display: block;
+  margin: 0 auto;
+  width: 80%;
+
 }
