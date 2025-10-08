@@ -1,6 +1,10 @@
 :root{
     --light-color: #F9DBBD;
-    --dark-color: #450920
+    --dark-color: #450920;
+    --color1: #FFA5AB;
+    --color2: #DA627D;
+    --color3: #A53860;
+    --radius: 50px;
     
 }
 
@@ -12,6 +16,7 @@
 
 body{
     min-height: 100vh;
+    background: var(--light-color);
 }
 form{
     display:block;
