@@ -1,14 +1,9 @@
 const HOST = "https://anime-db.p.rapidapi.com";
-let APIKEY;
-try{
-    APIKEY = await fetch("../../key.json", {method: "GET"}).then((data)=>data.json().then((data)=>data.key));
-} catch(e){
-    console.log("Fichier json inexistant");
-    APIKEY = "";
-}
 
 
-async function fetchAPI(endpoint = "", params = "", prod=false){
+async function fetchAPI(endpoint = "", params = "", prod=true){
+    let APIKEY = window.sessionStorage.getItem("APIKey");
+    
     if(!prod){
         try{
             const resFile = await fetch("../../test.json", {method: "GET"}).then((data)=>data.json());
