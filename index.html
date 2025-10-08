@@ -27,9 +27,27 @@
                     <label for="param">Paramètre :</label>
                     <input type="text" class="form-input" id="paramInput" name="param">
                 </div>
-            </form>
 
-            <template>
+                <div class ="group-btn">
+                    <button id="search-btn">Rechercher</button>
+                    <button id="reinit-btn">Réinitialiser</button>
+
+                </div>
+            </form>
+            <div id="div-anime-cards"></div>
+
+            <template id="anime-card">
+                <div>
+                    <h2 class="anime-card-title"></h2>
+                    <img class="anime-card-img">
+                </div>
+                <p class="anime-card-synopsis"></p>
+                <div>
+                    <p class="anime-card-genre"></p>
+                    <p class="anime-card-rank"></p>
+                    <p class="anime-card-episode-number"></p>
+                    <p class="anime-card-id"></p>
+                </div>
 
             </template>
         
