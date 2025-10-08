@@ -24,6 +24,9 @@ header {
 
 .titlePage {
   font-size: 2rem;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
 body{
@@ -117,13 +120,38 @@ footer {
     width: 100%;
     margin-bottom: 5px;
   }
+
+  #div-anime-cards {
+    grid-template-columns: 1fr !important; 
+    padding: 10px;
+  }
+  
+  .card {
+    max-width: 100%;
+  }
+  
+  .anime-card-img {
+    width: 100%; 
+  }
 }
 
 /*anime cards*/
+#div-anime-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 20px;
+  padding: 20px;
+  outline: 2px solid var(--dark-color);
+}
+
 .card {
   background-color: var(--color1);
-  margin: 1em;
   border-radius: 1em;
+  padding: 1em;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  width: 100%;
+  box-sizing: border-box;
+  outline: 2px solid var(--dark-color);
 }
 
 .anime-card-title{
@@ -135,6 +163,6 @@ footer {
 .anime-card-img{
   display: block;
   margin: 0 auto;
-  width: 80%;
+  width: 50%;
 
 }
