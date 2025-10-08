@@ -1,14 +1,17 @@
 import apiHandler from "./getDataAPI.js";
+let cleApi;
 
-window.onload = function() {
-    const cleApi = prompt("Veuillez entrer votre clé API :");
+export function popUpAPI() {
+    return new Promise((resolve, reject) => {
+        cleApi = prompt("Veuillez entrer votre clé API :");
 
-    if (cleApi) {
-        document.getElementById("resultat").innerText = "Clé API reçue ✅";
-        console.log("Clé API :", cleApi);
-    } else {
-        document.getElementById("resultat").innerText = "Aucune clé saisie ❌";
-    }
+        if (cleApi) {
+            //console.log("Clé API :", cleApi);
+            resolve(cleApi)
+        } else {
+            reject("Aucune clé saisie ❌");
+        }
+    })   
 };
 
 export const ExportcleApi = cleApi;
