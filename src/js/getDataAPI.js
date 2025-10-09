@@ -1,7 +1,7 @@
 const HOST = "https://anime-db.p.rapidapi.com";
 
 
-async function fetchAPI(endpoint = "", params = "", prod=true){
+async function fetchAPI(endpoint = "", params = "", prod=false){
     let APIKEY = window.sessionStorage.getItem("APIKey");
     
     if(!prod){

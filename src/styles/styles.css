@@ -19,7 +19,6 @@ header {
   padding: 20px 0;
   background-color: var(--color2);
   color: var(--dark-color);
-  margin: 30px auto;
 }
 
 .titlePage {
@@ -45,6 +44,9 @@ form {
   padding: var(--radius);
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin-left: 20px;
+  margin-right: 20px;
+  outline: 2px solid var(--dark-color);
 }
 
 .form-parts {
@@ -85,14 +87,6 @@ button {
   margin-top: 20px;
 }
 
-/* Affichage des animes */
-
-/* Footer */
-footer {
-  margin-top: 50px;
-  text-align: center;
-}
-
 /* Partie téléphone */
 @media (max-width: 600px) {
   body {
@@ -115,23 +109,26 @@ footer {
     flex-direction: column;
     align-items: stretch;
   }
-  
   .form-parts label {
     width: 100%;
     margin-bottom: 5px;
   }
-
   #div-anime-cards {
     grid-template-columns: 1fr !important; 
     padding: 10px;
   }
-  
   .card {
     max-width: 100%;
   }
-  
   .anime-card-img {
     width: 100%; 
+  }
+  .anime-card-info-grid {
+    grid-template-columns: 1fr;
+    text-align: left;
+  }
+  .anime-card-info-grid .label {
+    text-align: left;
   }
 }
 
@@ -141,7 +138,6 @@ footer {
   grid-template-columns: repeat(2, 1fr); 
   gap: 20px;
   padding: 20px;
-  outline: 2px solid var(--dark-color);
 }
 
 .card {
@@ -158,11 +154,40 @@ footer {
   color :var(--dark-color);
   text-decoration: underline;
   text-align: center;
+  font-family: 'Poppins', sans-serif;
+  text-transform: uppercase;
+}
+
+.anime-card-synopsis{
+  text-align: justify;
+
 }
 
 .anime-card-img{
   display: block;
   margin: 0 auto;
   width: 50%;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
 
+.anime-card-info-grid {
+  display: grid;
+  grid-template-columns: max-content auto;
+  gap: 8px 16px;
+  margin-top: 1em;
+  font-size: 0.95rem;
+  justify-content: center;
+  text-align: left;
+}
+
+.anime-card-info-grid .label {
+  font-weight: bold;
+  color: var(--dark-color);
+  text-align: right;
+}
+
+.anime-card-info-grid span {
+  color: var(--dark-color);
+  word-break: break-word;
 }
