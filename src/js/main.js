@@ -70,13 +70,19 @@ async function displayAnime(event){
 
 const themeButton = document.querySelector(".themeButton");
 const body = document.querySelector("body");
+const themeIcon = document.getElementById("themeIcon");
 let darkMode = false;
 themeButton.addEventListener("click", ()=>{
     if(body.className.includes("dark")){
-        body.classList.remove("dark")
+        body.classList.remove("dark");
+        themeIcon.classList.remove("fa-moon");
+        themeIcon.classList.add("fa-sun");
         darkMode = false;
     }else{
         body.classList.add("dark");
         darkMode = true;
+        themeIcon.classList.remove("fa-sun");
+        themeIcon.classList.add("fa-moon");
     }
+    window.sessionStorage.setItem("darkMode", darkMode ? "yes": "no");
 });
