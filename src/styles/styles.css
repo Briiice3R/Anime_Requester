@@ -4,6 +4,11 @@
     --color1: #FFA5AB;
     --color2: #DA627D;
     --color3: #A53860;
+    --dark-text-color: #DAE0FC;
+    --dark1-color:#004CA3;
+    --dark2-color:#163350;
+    --dark3-color:#162B3B;
+    --dark-main-color:#051624;
     --radius: 50px; 
 }
 
@@ -13,12 +18,32 @@
   box-sizing: border-box;
 }
 
+.themeContainer{
+  display: flex;
+  justify-content: end;
+  margin: 2px;
+}
+
+.dark{
+  background: var(--dark-main-color);
+  color:var(--dark-text-color)
+}
+
+.themeButton{
+  
+}
+
 /* Partie header*/ 
 header {
   text-align: center;
   padding: 20px 0;
   background-color: var(--color2);
   color: var(--dark-color);
+}
+
+body.dark header{
+  background: var(--dark2-color);
+  color: var(--dark-text-color);
 }
 
 .titlePage {
@@ -36,6 +61,7 @@ body{
     line-height: 1.6;
 }
 
+
 /* Partie de recherche */
 form {
   max-width: auto;
@@ -47,6 +73,11 @@ form {
   margin-left: 20px;
   margin-right: 20px;
   outline: 2px solid var(--dark-color);
+}
+
+body.dark form{
+  background: var(--dark1-color);
+  outline-color: var(--dark-text-color);
 }
 
 .form-parts {
@@ -69,6 +100,21 @@ form {
   background-color: var(--color2);
 }
 
+
+
+select, option{
+  color: var(--dark-color);
+}
+
+body.dark select, option{
+  color: var(--dark-text-color)
+}
+
+body.dark .form-input{
+  border-color: var(--dark-text-color);
+  background: var(--dark2-color);
+}
+
 /* Partie Boutons */
 button {
   padding: 10px 15px;
@@ -78,6 +124,11 @@ button {
   cursor: pointer;
   background-color: var(--color2);
   color: var(--dark-color);
+}
+
+body.dark button{
+  background: var(--dark2-color);
+  color: var(--dark-text-color);
 }
 
 .group-btn {
@@ -99,7 +150,7 @@ button {
     flex-direction: column;
     align-items: stretch;
   }
-  button {
+  form.button {
     width: 100%;
   }
   .form-input {
@@ -150,12 +201,21 @@ button {
   outline: 2px solid var(--dark-color);
 }
 
+body.dark .card{
+  background: var(--dark1-color);
+  outline-color: var(--dark-text-color);
+}
+
 .anime-card-title{
   color :var(--dark-color);
   text-decoration: underline;
   text-align: center;
   font-family: 'Poppins', sans-serif;
   text-transform: uppercase;
+}
+
+body.dark .anime-card-title{
+  color: var(--light-color)
 }
 
 .anime-card-synopsis{
@@ -187,7 +247,15 @@ button {
   text-align: right;
 }
 
+body.dark .anime-card-info-grid .label{
+  color: var(--dark-text-color)
+}
+
 .anime-card-info-grid span {
   color: var(--dark-color);
   word-break: break-word;
+}
+
+body.dark .anime-card-info-grid span{
+  color: var(--dark-text-color)
 }
