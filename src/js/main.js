@@ -1,5 +1,7 @@
 import {popUpAPI} from "./getApiKey.js";
 import apiHandler from "./getDataAPI.js";
+const searchType = document.getElementById("searchType");
+const searchParameter = document.getElementById("paramInput")
 
 async function init(){
     try{
@@ -7,14 +9,20 @@ async function init(){
             await popUpAPI();
         }
         
-        const d = await apiHandler.getAnimeByName("Fullmetal");
+        switch(searchType.value){
+            case "title":
+                const request = await apiHandler.getAnimeByName(paramInput.value);
+                break;
+        }
+
+        const request = await apiHandler.getAnimeByName("Death note");
         
         const template = document.getElementById("anime-card");
         const container = document.getElementById("div-anime-cards");
 
 
         
-        d.forEach(anime => {
+        request.forEach(anime => {
             
             const animeCard = template.content.cloneNode(true);
             animeCard.querySelector('.anime-card-title').textContent = anime.title;
