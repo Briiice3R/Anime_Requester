@@ -6,10 +6,10 @@ const form = document.getElementById("form");
 let request;
 async function init(){
     try{
-        /*
-        if(!window.sessionStorage.getItem("APIKey")){
-            await popUpAPI();
-        }*/
+        
+        // if(!window.sessionStorage.getItem("APIKey")){
+        //     await popUpAPI();
+        // }
         
     }catch (error){
         init();
@@ -65,3 +65,18 @@ async function displayAnime(event){
 
     })
 };
+
+
+
+const themeButton = document.querySelector(".themeButton");
+const body = document.querySelector("body");
+let darkMode = false;
+themeButton.addEventListener("click", ()=>{
+    if(body.className.includes("dark")){
+        body.classList.remove("dark")
+        darkMode = false;
+    }else{
+        body.classList.add("dark");
+        darkMode = true;
+    }
+});
