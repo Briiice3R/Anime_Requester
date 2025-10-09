@@ -45,9 +45,10 @@ async function fetchAPI(endpoint = "", params = "", prod=false){
 
 const apiHandler = {
     getAnimeById: id=>fetchAPI(`/anime/by-id/${id}`, ""),
-    getAnimeByName: (name)=>fetchAPI(`/anime?search=${name}`,"&page=1&size=10"),
+    getAnimeByName: name=>fetchAPI(`/anime?search=${name}`,"&page=1&size=10"),
     getAnimeByRank: rank => fetchAPI(`/anime/by-ranking/${rank}`, ""),
-    getTenAnime: (sortAsc=true)=> fetchAPI("/anime", `?page=1&size=10&sortOrder=${sortAsc?"asc":"desc"}`)
+    getTenAnime: (sortAsc=true)=> fetchAPI("/anime", `?page=1&size=10&sortOrder=${sortAsc?"asc":"desc"}`),
+    getAnimeByGenre: genre=>fetchAPI("/anime", `?page=1&size=10&genres=${encodeURIComponent(genre)}`)
 };
 
 export default apiHandler;
