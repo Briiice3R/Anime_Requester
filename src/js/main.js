@@ -75,14 +75,14 @@ let darkMode = false;
 themeButton.addEventListener("click", ()=>{
     if(body.className.includes("dark")){
         body.classList.remove("dark");
-        themeIcon.classList.remove("fa-moon");
-        themeIcon.classList.add("fa-sun");
+        themeIcon.classList.remove("fa-sun");
+        themeIcon.classList.add("fa-moon");
         darkMode = false;
     }else{
         body.classList.add("dark");
         darkMode = true;
-        themeIcon.classList.remove("fa-sun");
-        themeIcon.classList.add("fa-moon");
+        themeIcon.classList.remove("fa-moon");
+        themeIcon.classList.add("fa-sun");
     }
     window.sessionStorage.setItem("darkMode", darkMode ? "yes": "no");
 });
