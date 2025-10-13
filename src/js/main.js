@@ -2,12 +2,15 @@ import {popUpAPI} from "./getApiKey.js";
 import apiHandler from "./getDataAPI.js";
 const searchType = document.getElementById("searchType");
 const searchParameter = document.getElementById("paramInput");
+const paramGroup = document.querySelector(".paramGroup");
 const form = document.getElementById("form");
 const reinit = document.getElementById("reinit-btn");
 let request;
 
 const template = document.getElementById("anime-card");
 const container = document.getElementById("div-anime-cards");
+
+const genresGroup = document.querySelector(".genresGroup");
 
 
 async function init(){
@@ -18,6 +21,31 @@ async function init(){
         }
         //request = await apiHandler.getTenAnime(searchParameter.value);
         //displayAnime();
+        const genres = await apiHandler.getGenres();
+        
+        searchType.addEventListener("change", (event)=>{
+            if(event.target.value === "genre"){
+                paramGroup.style.display = "none"
+                genres.forEach((genre, index)=>{
+                    const labelGenre = document.createElement("label");
+                    labelGenre.htmlFor = "genreCheck";
+                    labelGenre.textContent = genre._id;
+                    genresGroup.appendChild(labelGenre)
+                    const checkboxGenre = document.createElement("input");
+                    checkboxGenre.type = "checkbox";
+                    checkboxGenre.name = "genreCheck";
+                    checkboxGenre.id = "genreCheck";
+                    checkboxGenre.value = genre._id;
+                    genresGroup.appendChild(checkboxGenre);
+                    
+                });
+                genresGroup.style.display = "block";
+            } else{
+                paramGroup.style.display = "flex";
+                genresGroup.style.display = "none";
+            }
+        })
+        
 
     }catch (error){
         init();
@@ -45,7 +73,15 @@ async function requestAnime(event){
             displayAnime();
             break;
         case "genre":
-            request = await apiHandler.getAnimeByGenre(searchParameter.value);
+            const arrGenres = [];
+            const genresChecked = document.querySelectorAll("#genreCheck");
+            genresChecked.forEach(v=>{
+                if(v.checked){
+                    arrGenres.push(v.value);
+                }
+            })
+
+            request = await apiHandler.getAnimeByGenre(arrGenres);
             displayAnime();
         break;
         case "id":
