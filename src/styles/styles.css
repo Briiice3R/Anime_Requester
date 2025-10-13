@@ -35,22 +35,34 @@
 
 /* Partie header*/ 
 header {
-  text-align: center;
-  padding: 20px 0;
   background-color: var(--color2);
   color: var(--dark-color);
 }
+
 
 body.dark header{
   background: var(--dark2-color);
   color: var(--dark-text-color);
 }
 
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  max-width: 100%;
+  padding: 20px;
+}
+
 .titlePage {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   font-size: 2rem;
   font-family: 'Poppins', sans-serif;
   letter-spacing: 1px;
   text-transform: uppercase;
+  margin: 0 auto;
 }
 
 body{
@@ -60,6 +72,19 @@ body{
     color: var(--dark-color);
     line-height: 1.6;
 }
+
+button.themeButton{
+  background-color: var(--color1);
+  border-color: var(--dark-color);
+  border-style: solid;
+}
+
+body.dark .themeButton{
+  background-color: var(--dark1-color);
+  border-color: var(--dark-text-color);
+}
+
+
 
 
 /* Partie de recherche */
