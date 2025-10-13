@@ -50,7 +50,7 @@ async function requestAnime(event){
         break;
         default :
             request = await apiHandler.getTenAnime(searchParameter.value);
-            displayAnimes();
+            displayAnime();
     }
 
    
@@ -92,8 +92,11 @@ function displayAnime() {
         animeCard.querySelector('.anime-card-title').textContent = request.title;
         animeCard.querySelector('.anime-card-img').src = request.image;
         animeCard.querySelector('.anime-card-synopsis').textContent = request.synopsis;
-        anime.genres.forEach(genre =>{
-            animeCard.querySelector('.anime-card-genre').textContent = textContent+", "+genre;
+        request.genres.forEach((genre, index)  =>{
+            animeCard.querySelector('.anime-card-genre').textContent += genre;
+            if(!(index === request.genres.length - 1)){
+                animeCard.querySelector('.anime-card-genre').textContent += ", ";
+            }
         })
         animeCard.querySelector('.anime-card-rank').textContent = request.ranking;
         animeCard.querySelector('.anime-card-episode-number').textContent = request.episodes;
