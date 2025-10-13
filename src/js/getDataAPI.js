@@ -48,7 +48,8 @@ const apiHandler = {
     getAnimeByName: name=>fetchAPI(`/anime?search=${name}`,"&page=1&size=10"),
     getAnimeByRank: rank => fetchAPI(`/anime/by-ranking/${rank}`, ""),
     getTenAnime: (sortAsc=true)=> fetchAPI("/anime", `?page=1&size=10&sortOrder=${sortAsc?"asc":"desc"}`),
-    getAnimeByGenre: genre=>fetchAPI("/anime", `?page=1&size=10&genres=${encodeURIComponent(genre)}`)
+    getAnimeByGenre: genre=>fetchAPI("/anime", `?page=1&size=10&genres=${encodeURIComponent(genre)}`),
+    getGenres: ()=>fetchAPI("/genre", ``)
 };
 
 export default apiHandler;
