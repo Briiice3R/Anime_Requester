@@ -74,8 +74,11 @@ function displayAnime() {
             animeCard.querySelector('.anime-card-title').textContent = anime.title;
             animeCard.querySelector('.anime-card-img').src = anime.image;
             animeCard.querySelector('.anime-card-synopsis').textContent = anime.synopsis;
-            anime.genres.forEach(genre =>{
-                animeCard.querySelector('.anime-card-genre').textContent += ", "+genre;
+            anime.genres.forEach((genre, index)  =>{
+                animeCard.querySelector('.anime-card-genre').textContent += genre;
+                if(!(index === anime.genres.length - 1)){
+                    animeCard.querySelector('.anime-card-genre').textContent += ", ";
+                }
             })
             animeCard.querySelector('.anime-card-rank').textContent = anime.ranking;
             animeCard.querySelector('.anime-card-episode-number').textContent = anime.episodes;
