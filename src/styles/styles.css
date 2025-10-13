@@ -91,6 +91,14 @@ body.dark form{
   font-weight: bold;
 }
 
+.parameter{
+  color: #000;
+}
+
+body.dark .parameter{
+  color: var(--dark-text-color)
+}
+
 .form-input {
   flex: 1;
   border: 1px solid var(--dark-color);
