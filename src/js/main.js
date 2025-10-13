@@ -3,6 +3,7 @@ import apiHandler from "./getDataAPI.js";
 const searchType = document.getElementById("searchType");
 const searchParameter = document.getElementById("paramInput");
 const form = document.getElementById("form");
+const reinit = document.getElementById("reinit-btn");
 let request;
 
 const template = document.getElementById("anime-card");
@@ -27,6 +28,13 @@ init();
 
 
 form.addEventListener("submit", requestAnime);
+reinit.addEventListener("click", reinitSearch);
+
+function reinitSearch(){
+    clearCards();
+    searchType.selectedIndex = 0;
+    searchParameter.value = '';
+}
 
 async function requestAnime(event){
     event.preventDefault();
