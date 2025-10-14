@@ -19,32 +19,8 @@ async function init(){
         if(!window.sessionStorage.getItem("APIKey")){
             await popUpAPI();
         }
-        //request = await apiHandler.getTenAnime(searchParameter.value);
-        //displayAnime();
-        const genres = await apiHandler.getGenres();
-        
-        searchType.addEventListener("change", (event)=>{
-            if(event.target.value === "genre"){
-                paramGroup.style.display = "none"
-                genres.forEach((genre, index)=>{
-                    const labelGenre = document.createElement("label");
-                    labelGenre.htmlFor = "genreCheck";
-                    labelGenre.textContent = genre._id;
-                    genresGroup.appendChild(labelGenre)
-                    const checkboxGenre = document.createElement("input");
-                    checkboxGenre.type = "checkbox";
-                    checkboxGenre.name = "genreCheck";
-                    checkboxGenre.id = "genreCheck";
-                    checkboxGenre.value = genre._id;
-                    genresGroup.appendChild(checkboxGenre);
-                    
-                });
-                genresGroup.style.display = "block";
-            } else{
-                paramGroup.style.display = "flex";
-                genresGroup.style.display = "none";
-            }
-        })
+        request = await apiHandler.getTenAnime(searchParameter.value);
+        displayAnime();
         
 
     }catch (error){
@@ -55,6 +31,7 @@ async function init(){
 init();
 
 
+searchType.addEventListener("change", updateFormElement);
 form.addEventListener("submit", requestAnime);
 reinit.addEventListener("click", reinitSearch);
 
@@ -64,13 +41,38 @@ function reinitSearch(){
     searchParameter.value = '';
 }
 
+async function updateFormElement(event){
+    if(event.target.value === "genre"){
+        if(genresGroup.children.length == 0){
+            const genres = await apiHandler.getGenres();
+            genres.forEach((genre, index)=>{
+                const labelGenre = document.createElement("label");
+                labelGenre.htmlFor = "genreCheck";
+                labelGenre.textContent = genre._id;
+                genresGroup.appendChild(labelGenre)
+                const checkboxGenre = document.createElement("input");
+                checkboxGenre.type = "checkbox";
+                checkboxGenre.name = "genreCheck";
+                checkboxGenre.id = "genreCheck";
+                checkboxGenre.value = genre._id;
+                genresGroup.appendChild(checkboxGenre);
+            });
+        }
+        paramGroup.style.display = "none"
+        genresGroup.style.display = "block";
+    } else{        
+        genresGroup.style.display = "none";
+        paramGroup.style.display = "flex";
+    }
+}
+
 async function requestAnime(event){
     event.preventDefault();
-    console.log("searchType =", searchType.value);
+    // console.log("searchType =", searchType.value);
     switch(searchType.value){
         case "title":
+            
             request = await apiHandler.getAnimeByName(searchParameter.value);
-            displayAnime();
             break;
         case "genre":
             const arrGenres = [];
@@ -82,20 +84,17 @@ async function requestAnime(event){
             })
 
             request = await apiHandler.getAnimeByGenre(arrGenres);
-            displayAnime();
-        break;
+            break;
         case "id":
-            request = await apiHandler.getAnimeById(searchParameter.value);
-            displayAnime();
-        break;
+            request = await apiHandler.getAnimeById(searchParameter.value || 1);
+            break;
         case "rank":
-            request = await apiHandler.getAnimeByRank(searchParameter.value);
-            displayAnime();
-        break;
+            request = await apiHandler.getAnimeByRank(searchParameter.value || 1);
+            break;
         default :
-            request = await apiHandler.getTenAnime(searchParameter.value);
-            displayAnime();
+            request = await apiHandler.getTenAnime();
     }
+    displayAnime();
 
    
 };
