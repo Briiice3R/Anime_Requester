@@ -1,16 +1,18 @@
 import {popUpAPI} from "./getApiKey.js";
 import apiHandler from "./getDataAPI.js";
+import { displayAnime } from "./animeHandler.js";
 export default async function init(){
     try{
         
         if(!window.sessionStorage.getItem("APIKey")){
             await popUpAPI();
         }
-        request = await apiHandler.getTenAnime(searchParameter.value);
-        displayAnime();
+        const animeList = await apiHandler.getTenAnime();
+        displayAnime(animeList);
         
 
     }catch (error){
-        init();
+        console.error("Erreur pendant l'initiation : ", error);
+        alert("Clé incorrecte: relancez la page");
     }
 }

@@ -1,9 +1,9 @@
 
 
 import { requestAnime, displayAnime, reinitSearch } from "./animeHandler.js";
-import loadDarkMode from "./darkmodeHandler.js";
+import loadDarkMode from "./darkModeHandler.js";
 import updateFormElement from "./formChangeHandler.js";
-import init from "./init.js";
+import init from "./initLoader.js";
 
 const searchType = document.getElementById("searchType");
 
@@ -19,18 +19,6 @@ loadDarkMode();
 searchType.addEventListener("change", updateFormElement);
 form.addEventListener("submit", requestAnime);
 reinit.addEventListener("click", reinitSearch);
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

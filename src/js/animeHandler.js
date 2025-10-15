@@ -35,12 +35,12 @@ export async function requestAnime(event){
         default :
             request = await apiHandler.getTenAnime();
     }
-    displayAnime();
+    displayAnime(request);
 
    
 }
 
-export function displayAnime() {
+export function displayAnime(request) {
     clearCards();
     if(Array.isArray(request)){
         container.setAttribute("style", "grid-template-columns: repeat(2, 1fr);");
