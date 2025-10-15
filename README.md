@@ -62,14 +62,6 @@ Le projet est décliné en deux versions :
 
 ## 💻 Utilisation
 
-### 1. Cloner le dépôt
-```bash
-git clone https://github.com/username/anime-requester.git
-cd anime-requester
-```
-
----
-
 ## 🔑 Récupérer votre clé API sur RapidAPI
 
 1. **Créer un compte** sur [RapidAPI](https://rapidapi.com/auth/sign-up).  
@@ -81,33 +73,29 @@ cd anime-requester
    X-RapidAPI-Key
    ```
 
-⚠️ **Important** : cette clé est personnelle — ne la partagez jamais publiquement et **ne la poussez pas sur GitHub**.
+⚠️ **Important** : cette clé est personnelle — ne la partagez jamais publiquement.
 
 ---
 
 ## 🧰 Ajouter votre clé API à l’application
 
 - Au **premier lancement**, l’application vous demandera de saisir votre clé API dans un champ prévu à cet effet.  
+- La clé est stockée **temporairement dans `sessionStorage`** pour sécuriser un minimum son usage.
 
 ---
 
 ## 🚀 Lancer l’application
 
-1. Ouvrez le fichier `index.html` dans votre navigateur.  
-2. Saisissez votre clé API si ce n’est pas déjà fait.  
-3. Recherchez des animes par nom, ID, classement ou genre.  
+1. La version finale est déployée sur **GitHub Pages**, ce qui permet d’y accéder depuis n’importe quel navigateur sans installation locale.
+Vous pouvez tester la version hébergée ici : [https://briiice3r.github.io/Anime_Requester/](https://briiice3r.github.io/Anime_Requester/).  
+2. Saisissez votre clé API.  
+3. Recherchez des animes par nom, ID, classement ou genre. Vous pouvez également mettre l'application en version nuit si la version jour n'est pas agréable pour vous.  
 4. Les résultats s’affichent dynamiquement sous forme de cartes.
-
----
-
-## 🌐 Hébergement
-
-La version finale est déployée sur **GitHub Pages**, ce qui permet d’y accéder depuis n’importe quel navigateur sans installation locale.
 
 ---
 
 ## 👥 Auteurs
 
 Projet réalisé dans le cadre d’un travail de groupe — encadré par Christophe Vallot.  
-- Étudiants participants : *Brice RAMETTE, Milene PELLERIN et Camille GOLLIOT*
- 
+- Étudiants participants : *RAMETTE Brice, PELLERIN Milene & GOLLIOT Camille*
+
