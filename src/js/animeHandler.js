@@ -49,6 +49,7 @@ export function displayAnime(request) {
             const animeCard = template.content.cloneNode(true);
             animeCard.querySelector('.anime-card-title').textContent = anime.title;
             animeCard.querySelector('.anime-card-img').src = anime.image;
+            animeCard.querySelector('.anime-card-img').alt = "image de "+anime.title;
             animeCard.querySelector('.anime-card-synopsis').textContent = anime.synopsis;
             anime.genres.forEach((genre, index)  =>{
                 animeCard.querySelector('.anime-card-genre').textContent += genre;
@@ -67,6 +68,7 @@ export function displayAnime(request) {
         const animeCard = template.content.cloneNode(true);
         animeCard.querySelector('.anime-card-title').textContent = request.title;
         animeCard.querySelector('.anime-card-img').src = request.image;
+        animeCard.querySelector('.anime-card-img').alt = "image de "+request.title;
         animeCard.querySelector('.anime-card-synopsis').textContent = request.synopsis;
         request.genres.forEach((genre, index)  =>{
             animeCard.querySelector('.anime-card-genre').textContent += genre;
