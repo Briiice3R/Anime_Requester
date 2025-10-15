@@ -89,6 +89,8 @@ export function reinitSearch(){
     clearCards();
     searchType.selectedIndex = 0;
     searchParameter.value = '';
+    genresGroup.style.display = "none";
+    paramGroup.style.display = "flex";
 }
 
 export function clearCards(){
