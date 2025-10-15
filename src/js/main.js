@@ -46,20 +46,23 @@ async function updateFormElement(event){
         if(genresGroup.children.length == 0){
             const genres = await apiHandler.getGenres();
             genres.forEach((genre, index)=>{
+                const innerDiv = document.createElement("div");
+                innerDiv.id = "innerDivGenreCheck";
                 const labelGenre = document.createElement("label");
                 labelGenre.htmlFor = "genreCheck";
                 labelGenre.textContent = genre._id;
-                genresGroup.appendChild(labelGenre)
+                innerDiv.appendChild(labelGenre)
                 const checkboxGenre = document.createElement("input");
                 checkboxGenre.type = "checkbox";
                 checkboxGenre.name = "genreCheck";
                 checkboxGenre.id = "genreCheck";
                 checkboxGenre.value = genre._id;
-                genresGroup.appendChild(checkboxGenre);
+                innerDiv.appendChild(checkboxGenre);
+                genresGroup.appendChild(innerDiv);
             });
         }
         paramGroup.style.display = "none"
-        genresGroup.style.display = "block";
+        genresGroup.style.display = "flex";
     } else{        
         genresGroup.style.display = "none";
         paramGroup.style.display = "flex";
@@ -68,7 +71,6 @@ async function updateFormElement(event){
 
 async function requestAnime(event){
     event.preventDefault();
-    // console.log("searchType =", searchType.value);
     switch(searchType.value){
         case "title":
             

@@ -51,13 +51,10 @@ body.dark header{
   justify-content: space-between;
   position: relative;
   max-width: 100%;
-  padding: 20px;
+  padding: 15px;
 }
 
 .titlePage {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
   font-size: 2rem;
   font-family: 'Poppins', sans-serif;
   letter-spacing: 1px;
@@ -173,9 +170,7 @@ body.dark button{
 
 /* Partie téléphone */
 @media (max-width: 600px) {
-  body {
-    padding: 20px;
-  }
+
   form {
     padding: 20px;
   }
@@ -214,6 +209,7 @@ body.dark button{
   .anime-card-info-grid .label {
     text-align: left;
   }
+
 }
 
 /*anime cards*/
@@ -291,4 +287,19 @@ body.dark .anime-card-info-grid .label{
 
 body.dark .anime-card-info-grid span{
   color: var(--dark-text-color)
+}
+
+/*checkbox*/
+
+#innerDivGenreCheck{
+  padding:0.5em;
+}
+
+.genresGroup{
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.genresGroup label{
+  margin-right: 0.5em;;
 }
